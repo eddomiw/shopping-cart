@@ -20,7 +20,7 @@ describe("Renders Header Elements", () => {
   it("Cart", () => {
     render(<Header />);
     const cartButton = screen.queryByRole("button", {
-      name: /shopping cart/i,
+      name: /cart/i,
     });
     expect(cartButton).toBeInTheDocument();
   });
