@@ -1,11 +1,11 @@
-import Navigation from "./components/Navigation";
+import Header from "./components/Navigation";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 
 function App() {
   return (
     <>
-      <Navigation />
+      <Header />
       <Home />
       <Footer />
     </>
