@@ -23,7 +23,7 @@ describe("Navigation Items Render", () => {
 
   it("About", () => {
     render(<Navigation />);
-    const aboutPage = screen.querybyText("About");
+    const aboutPage = screen.queryByText("About");
     expect(aboutPage).toBeInTheDocument();
   });
 });
