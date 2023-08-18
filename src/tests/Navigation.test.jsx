@@ -3,6 +3,12 @@ import { render, screen } from "@testing-library/react";
 import Navigation from "../components/Navigation";
 
 describe("Navigation Items Render", () => {
+  it("Close Button ", () => {
+    render(<Navigation />);
+    const closeButton = screen.queryByRole("button");
+    expect(closeButton).toBeInTheDocument();
+  });
+
   it("Navigation Title", () => {
     render(<Navigation />);
     const navTitle = screen.queryByText("Navigation");
