@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Navigation from "../components/Navigation";
 
-describe("Navigation Items Render", () => {
+describe("Navigation Elements Render", () => {
   it("Close Button ", () => {
     render(<Navigation />);
     const closeButton = screen.queryByRole("button");
