@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Header from "../components/Header";
 
 describe("Renders Header Elements", () => {
@@ -23,5 +24,16 @@ describe("Renders Header Elements", () => {
       name: /cart/i,
     });
     expect(cartButton).toBeInTheDocument();
+  });
+});
+
+describe("Renders on event click", () => {
+  it("Navigation", async () => {
+    const user = userEvent.setup();
+    render(<Header />);
+    const button = screen.getByRole("button", { name: "Navigation" });
+    await user.click(button);
+    const navigationTitle = screen.getByRole("heading", { name: "Navigation" });
+    expect(navigationTitle).toBeInTheDocument();
   });
 });

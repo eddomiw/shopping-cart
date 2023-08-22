@@ -9,7 +9,7 @@ export default function Navigation({ onClose }) {
       >
         &times;
       </button>
-      <div className="sidebar-header text-2xl text-center pb-5">Navigation</div>
+      <h3 className="sidebar-header text-2xl text-center pb-5">Navigation</h3>
       <ul className="sidebar-nav list-none p-0 text-white">
         <li className="p-3 text-center">
           <a className="no-underline" href="#">
