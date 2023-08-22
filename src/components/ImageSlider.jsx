@@ -1,0 +1,39 @@
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+
+export default function ImageSlider({ images }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images]);
+
+  return (
+    <div className="slider-container w-full overflow-hidden">
+      <div className="flex transition-all duration-500 ease-in-out">
+        {images.map((image, index) => (
+          <div
+            key={index}
+            className={`slide ${
+              index === currentIndex ? "active" : "hidden"
+            }  `}
+          >
+            <img
+              className="max-w-full h-auto"
+              src={image}
+              alt={`Image ${index + 1}`}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+ImageSlider.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
