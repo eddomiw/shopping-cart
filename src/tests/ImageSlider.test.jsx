@@ -20,7 +20,7 @@ describe("Render Image Slider Elements", () => {
       "https://s7d1.scene7.com/is/image/scom/207_HPR_24_OBK_xl?$1500w$",
     ];
     render(<ImageSlider images={imageData} />);
-    const image1Or2 = screen.getByRole("img", { name: /Image (1|2)/i });
+    const image1Or2 = screen.getByRole("img", { name: /Image 1/i });
 
     expect(image1Or2).toBeInTheDocument();
   });
