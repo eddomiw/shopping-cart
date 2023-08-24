@@ -2,11 +2,15 @@ import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center">
       <h1>Oh no, this route does not exist!</h1>
-      <Link to="/">
-        You can go back to the home page by clicking here, though!
-      </Link>
+      <h1>
+        You can go back to the home page by clicking{" "}
+        <Link to="/" className="text-blue-500">
+          here
+        </Link>
+        , though!
+      </h1>
     </div>
   );
 };
