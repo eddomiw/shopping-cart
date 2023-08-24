@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export default function Navigation({ onClose }) {
   return (
@@ -12,19 +13,19 @@ export default function Navigation({ onClose }) {
       <h3 className="sidebar-header text-2xl text-center pb-5">Navigation</h3>
       <ul className="sidebar-nav list-none p-0 text-white">
         <li className="p-3 text-center">
-          <a className="no-underline" href="#">
+          <Link to="/" className="no-underline">
             Home
-          </a>
+          </Link>
         </li>
         <li className="p-3 text-center">
-          <a className="no-underline" href="#">
+          <Link to="apparel" className="no-underline">
             Apparel
-          </a>
+          </Link>
         </li>
         <li className="p-3 text-center">
-          <a className="no-underline" href="#">
+          <Link to="about" className="no-underline">
             About
-          </a>
+          </Link>
         </li>
       </ul>
     </div>
