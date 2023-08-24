@@ -1,7 +1,8 @@
 import Header from "./components/Header";
-import Home from "./components/Home";
-import Footer from "./components/Footer";
+// import Home from "./components/Home";
+// import Footer from "./components/Footer";
 import ImageSlider from "./components/ImageSlider";
+import LatestReleases from "./components/LatestReleases";
 
 function App() {
   const imageData = [
@@ -13,8 +14,7 @@ function App() {
     <div>
       <Header />
       <ImageSlider images={imageData} />
-      <Home />
-      <Footer />
+      <LatestReleases />
     </div>
   );
 }

@@ -11,7 +11,7 @@ export default function ImageSlider({ images }) {
 
     return () => clearInterval(interval);
   }, [images]);
-
+//TODO: DESKTOP VERSION FOR DISPLAYING TWO IMAGES
   return (
     <div className="slider-container w-full overflow-hidden">
       <div className="flex transition-all duration-500 ease-in-out">
