@@ -10,14 +10,17 @@ export default function Header() {
   };
 
   return (
-    <div className="flex justify-between w-full bg-pink-300 h-10 items-center flex-shrink-0">
-      <button className="ml-6" onClick={toggleNavigation}>
+    <div className="flex justify-between w-full bg-pink-300 h-10 items-center flex-shrink-0 ">
+      <button className="mr-auto px-5 basis-20" onClick={toggleNavigation}>
         Navigation
       </button>
       <Link to="/">
-        <h1>SWEATOO</h1>
+        <h1 className="basis-20 px-5 mx-auto">SWEATOO</h1>
       </Link>
-      <Link to="cart" className="no-underline mr-6">
+      <Link
+        to="cart"
+        className="no-underline basis-20 text-center px-5 ml-auto"
+      >
         Cart
       </Link>
       {isNavigationOpen && <Navigation onClose={toggleNavigation} />}
