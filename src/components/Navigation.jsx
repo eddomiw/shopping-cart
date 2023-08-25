@@ -18,12 +18,12 @@ export default function Navigation({ onClose }) {
           </Link>
         </li>
         <li className="p-3 text-center">
-          <Link to="apparel" className="no-underline">
+          <Link to="/apparel" className="no-underline">
             Apparel
           </Link>
         </li>
         <li className="p-3 text-center">
-          <Link to="about" className="no-underline">
+          <Link to="/about" className="no-underline">
             About
           </Link>
         </li>
