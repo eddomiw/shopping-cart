@@ -25,6 +25,6 @@ describe("Renders in Different States", () => {
     await waitFor(() => {
       const imageElements = screen.getAllByRole("img");
       expect(imageElements.length).toBe(4);
-    }, 5000);
+    });
   });
 });
