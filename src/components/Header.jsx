@@ -18,7 +18,7 @@ export default function Header() {
         <h1 className="px-5 mx-auto">SWEATOO</h1>
       </Link>
       <Link to="cart" className="basis-20 text-center px-5 ml-auto">
-        Cart
+        <button>Cart</button>
       </Link>
       {isNavigationOpen && <Navigation onClose={toggleNavigation} />}
     </div>
