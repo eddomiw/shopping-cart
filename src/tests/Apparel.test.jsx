@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { screen, render, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import Apparel from "../components/Apparel";
 
 it("Renders component without errors", () => {
@@ -25,6 +26,33 @@ describe("Renders in Different States", () => {
     await waitFor(() => {
       const imageElements = screen.getAllByRole("img");
       expect(imageElements.length).toBeGreaterThan(3);
+    });
+  });
+
+  it("Increments item count when '+' is pressed", async () => {
+    const user = userEvent.setup();
+    render(<Apparel />);
+    await waitFor(async () => {
+      const addButton = screen.getByTestId("addButton 1");
+      await user.click(addButton);
+      const count = screen.getByText("Count: 1");
+      expect(count).toBeInTheDocument();
+    });
+  });
+
+  it("Decrements item count when '-' is pressed", async () => {
+    const user = userEvent.setup();
+    render(<Apparel />);
+    await waitFor(async () => {
+      const addButton = screen.getByTestId("addButton 1");
+      const subtractButton = screen.getByTestId("subtractButton 1");
+      await user.click(addButton);
+      await user.click(addButton);
+      await user.click(addButton);
+      await user.click(subtractButton);
+
+      const count = screen.getByText("Count: 2");
+      expect(count).toBeInTheDocument();
     });
   });
 });
