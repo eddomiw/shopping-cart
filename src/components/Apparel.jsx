@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
 
-export default function LatestReleases() {
+export default function Apparel({
+  itemCounts,
+  decrementCount,
+  incrementCount,
+}) {
   const [clothing, setClothing] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [itemCounts, setItemCounts] = useState({}); // Track item counts
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products")
@@ -25,22 +29,6 @@ export default function LatestReleases() {
       .catch((error) => setError(error))
       .finally(() => setIsLoading(false));
   }, []);
-
-  // Function to increment item count
-  const incrementCount = (itemId) => {
-    setItemCounts((prevCounts) => ({
-      ...prevCounts,
-      [itemId]: (prevCounts[itemId] || 0) + 1,
-    }));
-  };
-
-  // Function to decrement item count
-  const decrementCount = (itemId) => {
-    setItemCounts((prevCounts) => ({
-      ...prevCounts,
-      [itemId]: Math.max((prevCounts[itemId] || 0) - 1, 0),
-    }));
-  };
 
   return (
     <div className="flex flex-col items-center my-2 gap-2">
@@ -91,3 +79,9 @@ export default function LatestReleases() {
     </div>
   );
 }
+
+Apparel.propTypes = {
+  decrementCount: PropTypes.func.isRequired,
+  incrementCount: PropTypes.func.isRequired,
+  itemCounts: PropTypes.any.isRequired,
+};
