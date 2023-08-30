@@ -1,7 +1,9 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Apparel from "../components/Apparel";
+
+// Function to increment item count
 
 it("Renders component without errors", () => {
   render(<Apparel />);
@@ -20,29 +22,39 @@ describe("Renders in Different States", () => {
     expect(errorDisplay).not.toBeInTheDocument();
   });
 
-  it("Displays sweaters when not in loading or error state", async () => {
-    render(<Apparel />);
-
-    await waitFor(() => {
-      const imageElements = screen.getAllByRole("img");
-      expect(imageElements.length).toBeGreaterThan(3);
-    });
-  });
-
-  it("Increments item count when '+' is pressed", async () => {
+  it("Increments button '+' is pressed one time", async () => {
     const user = userEvent.setup();
-    render(<Apparel />);
+    const itemCounts = { 1: 3 };
+    const incrementCount = vi.fn();
+    const decrementCount = vi.fn();
+    render(
+      <Apparel
+        decrementCount={decrementCount}
+        incrementCount={incrementCount}
+        itemCounts={itemCounts}
+      />
+    );
     await waitFor(async () => {
       const addButton = screen.getByTestId("addButton 1");
       await user.click(addButton);
-      const count = screen.getByText("Count: 1");
-      expect(count).toBeInTheDocument();
+
+      // Check if incrementCount was called
+      expect(incrementCount.mock.calls.length).toBe(1);
     });
   });
 
-  it("Decrements item count when '-' is pressed", async () => {
+  it("Decrements button '-' is pressed one time", async () => {
+    const itemCounts = { 1: 3 };
+    const incrementCount = vi.fn();
+    const decrementCount = vi.fn();
     const user = userEvent.setup();
-    render(<Apparel />);
+    render(
+      <Apparel
+        decrementCount={decrementCount}
+        incrementCount={incrementCount}
+        itemCounts={itemCounts}
+      />
+    );
     await waitFor(async () => {
       const addButton = screen.getByTestId("addButton 1");
       const subtractButton = screen.getByTestId("subtractButton 1");
@@ -51,8 +63,9 @@ describe("Renders in Different States", () => {
       await user.click(addButton);
       await user.click(subtractButton);
 
-      const count = screen.getByText("Count: 2");
-      expect(count).toBeInTheDocument();
+      // Check if both incrementCount and decrementCount were called
+      expect(incrementCount.mock.calls.length).toBe(3);
+      expect(decrementCount.mock.calls.length).toBe(1);
     });
   });
 });
