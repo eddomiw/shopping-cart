@@ -1,9 +1,11 @@
 import Navigation from "./Navigation";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import PropTypes from "prop-types";
 
-export default function Header() {
+export default function Header(itemCounts) {
   const [isNavigationOpen, setIsNavigationOpen] = useState(false);
+  const totalItemCount = Object.keys(itemCounts).length;
 
   const toggleNavigation = () => {
     setIsNavigationOpen(!isNavigationOpen);
@@ -17,10 +19,14 @@ export default function Header() {
       <Link to="/">
         <h1 className="px-5 mx-auto">SWEATOO</h1>
       </Link>
-      <Link to="cart" className="basis-20 text-center px-5 ml-auto">
+      <Link to="cart" className="basis-20 flex text-center gap-1 px-5 ml-auto">
         <button>Cart</button>
+        <div>{totalItemCount}</div>
       </Link>
       {isNavigationOpen && <Navigation onClose={toggleNavigation} />}
     </div>
   );
 }
+Header.propTypes = {
+  itemCounts: PropTypes.any.isRequired,
+};

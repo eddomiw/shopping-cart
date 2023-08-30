@@ -1,11 +1,12 @@
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Outlet } from "react-router-dom";
+import PropTypes from "prop-types";
 
-function App() {
+function App({ itemCounts }) {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header itemCounts={itemCounts} />
       <Outlet />
       <Footer />
     </div>
@@ -13,3 +14,7 @@ function App() {
 }
 
 export default App;
+
+App.propTypes = {
+  itemCounts: PropTypes.object.isRequired,
+};

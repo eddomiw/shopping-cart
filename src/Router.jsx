@@ -30,7 +30,7 @@ const Router = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <App />,
+      element: <App itemCounts={itemCounts} />,
       errorElement: <ErrorPage />,
       children: [
         { index: true, element: <Home /> },
@@ -45,7 +45,7 @@ const Router = () => {
           ),
         },
         { path: "about", element: <About /> },
-        { path: "cart", element: <Cart /> },
+        { path: "cart", element: <Cart itemCounts={itemCounts} /> },
       ],
     },
   ]);
