@@ -5,10 +5,11 @@ import Header from "../components/Header";
 import { BrowserRouter } from "react-router-dom";
 
 describe("Renders Header Elements", () => {
+  const cartItems = {};
   it("Website Title", () => {
     render(
       <BrowserRouter>
-        <Header />
+        <Header cartItems={cartItems} />
       </BrowserRouter>
     );
     const websiteName = screen.getByRole("heading");
@@ -18,7 +19,7 @@ describe("Renders Header Elements", () => {
   it("Navigation Button", () => {
     render(
       <BrowserRouter>
-        <Header />
+        <Header cartItems={cartItems} />
       </BrowserRouter>
     );
     const navigationButton = screen.queryByRole("button", {
@@ -30,7 +31,7 @@ describe("Renders Header Elements", () => {
   it("Cart", () => {
     render(
       <BrowserRouter>
-        <Header />
+        <Header cartItems={cartItems} />
       </BrowserRouter>
     );
     const cartButton = screen.getByRole("button", {
@@ -42,10 +43,12 @@ describe("Renders Header Elements", () => {
 
 describe("Renders on event click", () => {
   it("Navigation", async () => {
+    const cartItems = {};
+
     const user = userEvent.setup();
     render(
       <BrowserRouter>
-        <Header />
+        <Header cartItems={cartItems} />
       </BrowserRouter>
     );
     const button = screen.getByRole("button", { name: "Navigation" });
