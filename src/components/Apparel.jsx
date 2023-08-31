@@ -52,10 +52,16 @@ export default function Apparel({
               <div>{clothingItem.price}</div>
               <div>Count: {itemCounts[clothingItem.id] || 0}</div>
               <div>
-                <button onClick={() => decrementCount(clothingItem.id)}>
+                <button
+                  data-testid={`subtractButton ${clothingItem.id}`}
+                  onClick={() => decrementCount(clothingItem.id)}
+                >
                   -
                 </button>
-                <button onClick={() => incrementCount(clothingItem.id)}>
+                <button
+                  data-testid={`addButton ${clothingItem.id}`}
+                  onClick={() => incrementCount(clothingItem.id)}
+                >
                   +
                 </button>
               </div>
