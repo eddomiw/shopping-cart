@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-export default function Header(itemCounts) {
+export default function Header({ cartItems }) {
   const [isNavigationOpen, setIsNavigationOpen] = useState(false);
-  const totalItemCount = Object.keys(itemCounts).length;
+  const totalItemCount = Object.keys(cartItems).length;
 
   const toggleNavigation = () => {
     setIsNavigationOpen(!isNavigationOpen);
@@ -28,5 +28,5 @@ export default function Header(itemCounts) {
   );
 }
 Header.propTypes = {
-  itemCounts: PropTypes.any.isRequired,
+  cartItems: PropTypes.any.isRequired,
 };

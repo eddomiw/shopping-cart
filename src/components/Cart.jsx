@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
-export default function Cart({ itemCounts }) {
-  const totalItemCount = Object.keys(itemCounts).length;
+export default function Cart({ cartItems }) {
+  const totalItemCount = Object.keys(cartItems).length;
 
   return (
     <div>
@@ -12,6 +12,5 @@ export default function Cart({ itemCounts }) {
 }
 
 Cart.propTypes = {
-  itemCounts: PropTypes.any.isRequired,
+  cartItems: PropTypes.any.isRequired,
 };
-

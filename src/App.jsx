@@ -3,10 +3,10 @@ import Footer from "./components/Footer";
 import { Outlet } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function App({ itemCounts }) {
+function App({ cartItems }) {
   return (
     <div className="flex flex-col min-h-screen">
-      <Header itemCounts={itemCounts} />
+      <Header cartItems={cartItems} />
       <Outlet />
       <Footer />
     </div>
@@ -16,5 +16,5 @@ function App({ itemCounts }) {
 export default App;
 
 App.propTypes = {
-  itemCounts: PropTypes.object.isRequired,
+  cartItems: PropTypes.object.isRequired,
 };

@@ -5,6 +5,7 @@ export default function Apparel({
   itemCounts,
   decrementCount,
   incrementCount,
+  addToCart,
 }) {
   const [clothing, setClothing] = useState([]);
   const [error, setError] = useState(null);
@@ -33,9 +34,9 @@ export default function Apparel({
   return (
     <div className="flex flex-col items-center my-2 gap-2">
       {isLoading ? (
-        <p>Loading...</p>
+        <p>Loading...</p> //Displays loading indicator
       ) : error ? (
-        <p>Error: {error.message}</p>
+        <p>Error: {error.message}</p> //Displays error message if fetching failed
       ) : (
         <ul className="flex text-xs">
           {clothing.map((clothingItem) => (
@@ -60,8 +61,8 @@ export default function Apparel({
               </div>
               <button
                 onClick={() => {
-                  // Handle adding to cart here
-                  // You can use the itemCounts state to determine the quantity to add
+                  const quantity = itemCounts[clothingItem.id] || 0;
+                  addToCart(clothingItem.id, quantity);
                 }}
               >
                 Add to Cart
@@ -78,4 +79,5 @@ Apparel.propTypes = {
   decrementCount: PropTypes.func.isRequired,
   incrementCount: PropTypes.func.isRequired,
   itemCounts: PropTypes.any.isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
