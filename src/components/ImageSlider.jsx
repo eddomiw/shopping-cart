@@ -11,19 +11,19 @@ export default function ImageSlider({ images }) {
 
     return () => clearInterval(interval);
   }, [images]);
-//TODO: DESKTOP VERSION FOR DISPLAYING TWO IMAGES
+  //TODO: DESKTOP VERSION FOR DISPLAYING TWO IMAGES
   return (
     <div className="slider-container w-full overflow-hidden">
-      <div className="flex transition-all duration-500 ease-in-out">
+      <div className="flex w-screen transition-all duration-500 ease-in-out">
         {images.map((image, index) => (
           <div
             key={index}
             className={`slide ${
               index === currentIndex ? "active" : "hidden"
-            }  `}
+            }  w-screen`}
           >
             <img
-              className="max-w-full h-auto"
+              className="w-max-screen h-[500px] object-cover"
               src={image}
               alt={`Image ${index + 1}`}
             />

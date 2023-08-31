@@ -3,8 +3,8 @@ import LatestReleases from "./LatestReleases";
 
 function Home() {
   const imageData = [
-    "https://s7d1.scene7.com/is/image/scom/207_24_CTK_HPR_xl?$1500w$",
-    "https://s7d1.scene7.com/is/image/scom/207_HPR_24_OBK_xl?$1500w$",
+    "https://cdn.thewirecutter.com/wp-content/media/2020/12/cashmeresweaters-2048px-0924.jpg?auto=webp&quality=75&width=980&dpr=2",
+    "https://cdn.thewirecutter.com/wp-content/media/2020/12/cashmeresweaters-2048px-0995-2x1-1.jpg?auto=webp&quality=75&crop=2:1&width=980&dpr=2",
   ];
   return (
     <>
