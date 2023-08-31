@@ -10,6 +10,7 @@ import { useState } from "react";
 
 const Router = () => {
   const [itemCounts, setItemCounts] = useState({}); // Track item counts
+  const [cartItems, setCartItems] = useState({});
 
   // Function to increment item count
   const incrementCount = (itemId) => {
@@ -27,10 +28,24 @@ const Router = () => {
     }));
   };
 
+  const addToCart = (itemId, quantity) => {
+    if (quantity > 0) {
+      setCartItems((prevItems) => ({
+        ...prevItems,
+        [itemId]: quantity,
+      }));
+    } else {
+      // Remove the item from cart if quantity becomes 0
+      const updatedCartItems = { ...cartItems };
+      delete updatedCartItems[itemId];
+      setCartItems(updatedCartItems);
+    }
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <App itemCounts={itemCounts} />,
+      element: <App itemCounts={itemCounts} cartItems={cartItems} />,
       errorElement: <ErrorPage />,
       children: [
         { index: true, element: <Home /> },
@@ -41,11 +56,15 @@ const Router = () => {
               itemCounts={itemCounts}
               incrementCount={incrementCount}
               decrementCount={decrementCount}
+              addToCart={addToCart}
             />
           ),
         },
         { path: "about", element: <About /> },
-        { path: "cart", element: <Cart itemCounts={itemCounts} /> },
+        {
+          path: "cart",
+          element: <Cart itemCounts={itemCounts} cartItems={cartItems} />,
+        },
       ],
     },
   ]);
