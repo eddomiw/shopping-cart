@@ -28,14 +28,17 @@ const Router = () => {
     }));
   };
 
-  const addToCart = (itemId, quantity) => {
+  const addToCart = (itemId, image, quantity, price) => {
     if (quantity > 0) {
       setCartItems((prevItems) => ({
         ...prevItems,
-        [itemId]: quantity,
+        [itemId]: {
+          image,
+          quantity,
+          price,
+        },
       }));
     } else {
-      // Remove the item from cart if quantity becomes 0
       const updatedCartItems = { ...cartItems };
       delete updatedCartItems[itemId];
       setCartItems(updatedCartItems);

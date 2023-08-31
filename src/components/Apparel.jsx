@@ -68,7 +68,12 @@ export default function Apparel({
               <button
                 onClick={() => {
                   const quantity = itemCounts[clothingItem.id] || 0;
-                  addToCart(clothingItem.id, quantity);
+                  addToCart(
+                    clothingItem.id,
+                    clothingItem.image,
+                    quantity,
+                    clothingItem.price
+                  );
                 }}
               >
                 Add to Cart
