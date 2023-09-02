@@ -6,7 +6,7 @@ export default function LatestReleases() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("https://fakestoreapi.com/products", { mode: "cors" })
       .then((res) => {
         if (res.status >= 400) {
           throw new Error("server error");
