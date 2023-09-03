@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 
-export default function Cart({ cartItems }) {
+export default function Cart({ cartItems, updateCartItems }) {
   const [totalCost, setTotalCost] = useState();
 
   const calculateTotalCost = () => {
@@ -13,7 +13,9 @@ export default function Cart({ cartItems }) {
   };
 
   const handleRemoveItem = (itemId) => {
-    // TODO: Implement item removal logic MAKE SURE IT IS THE CARTITEMS that is updated
+    const updatedCartItems = { ...cartItems };
+    delete updatedCartItems[itemId];
+    updateCartItems(updatedCartItems);
   };
 
   // Update totalCost whenever cartItems change
@@ -35,9 +37,13 @@ export default function Cart({ cartItems }) {
               src={cartItems[itemId].image}
               alt={itemId}
             ></img>
-            Quantity: {cartItems[itemId].quantity}{" "}
+            <div>Quantity: {cartItems[itemId].quantity}</div>
             <div>Price: ${cartItems[itemId].price}</div>
-            <button type="button" data-testid={`removeButton ${itemId}`}>
+            <button
+              type="button"
+              data-testid={`removeButton ${itemId}`}
+              onClick={() => handleRemoveItem(itemId)}
+            >
               Remove
             </button>
           </div>
@@ -50,4 +56,5 @@ export default function Cart({ cartItems }) {
 
 Cart.propTypes = {
   cartItems: PropTypes.object.isRequired,
+  updateCartItems: PropTypes.func.isRequired,
 };

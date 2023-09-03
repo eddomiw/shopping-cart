@@ -45,6 +45,10 @@ const Router = () => {
     }
   };
 
+  const updateCartItems = (newCartItems) => {
+    setCartItems(newCartItems);
+  };
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -66,7 +70,13 @@ const Router = () => {
         { path: "about", element: <About /> },
         {
           path: "cart",
-          element: <Cart itemCounts={itemCounts} cartItems={cartItems} />,
+          element: (
+            <Cart
+              itemCounts={itemCounts}
+              cartItems={cartItems}
+              updateCartItems={updateCartItems}
+            />
+          ),
         },
       ],
     },

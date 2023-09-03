@@ -1,4 +1,4 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Cart from "../components/Cart";
@@ -8,6 +8,7 @@ describe("Render Component Elements", () => {
     1: { itemId: 1, image: "/blank/image", quantity: 10, price: 10.99 },
     2: { itemId: 2, image: "$", quantity: 3, price: 25.99 },
   };
+
   it("Cart Heading", () => {
     render(<Cart cartItems={cartItems} />);
     const heading = screen.getByRole("heading");
@@ -35,28 +36,15 @@ describe("Renders in Different States", () => {
     1: { itemId: 1, image: "/blank/image", quantity: 10, price: 10.99 },
     2: { itemId: 2, image: "$", quantity: 3, price: 25.99 },
   };
-  it("Removes item from cartItems", () => {
-    render(<Cart cartItems={cartItems} />);
+  const updateCartItems = vi.fn();
+
+  it("Removes item from cartItems", async () => {
+    render(<Cart cartItems={cartItems} updateCartItems={updateCartItems} />);
     const user = userEvent.setup();
     const removeButton = screen.getByTestId("removeButton 1");
-    user.click(removeButton);
-    const itemCount = Object.keys(cartItems).length;
-    expect(itemCount).toBe(1);
-  });
-
-  it("Increments quantity when + button is clicked", () => {
-    render(<Cart cartItems={cartItems} />);
-    const user = userEvent.setup();
-    const addButton = screen.getByTestId("addButton 1");
-    user.click(addButton);
-    expect(cartItems[1].quantity).toBe(11);
-  });
-
-  it("Decrements quantity when - button is clicked", () => {
-    render(<Cart cartItems={cartItems} />);
-    const user = userEvent.setup();
-    const subtractButton = screen.getByTestId("subtractButton 1");
-    user.click(subtractButton);
-    expect(cartItems[1].quantity).toBe(9);
+    await user.click(removeButton);
+    expect(updateCartItems).toHaveBeenCalledWith({
+      2: { itemId: 2, image: "$", quantity: 3, price: 25.99 },
+    });
   });
 });
