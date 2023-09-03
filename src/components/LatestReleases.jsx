@@ -25,6 +25,7 @@ export default function LatestReleases() {
       .finally(() => setIsLoading(false));
   }, []);
 
+
   return (
     <div className="flex flex-col items-center my-2 gap-2">
       <h1 className="text-2xl">Latest Releases</h1>
