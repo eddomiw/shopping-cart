@@ -28,7 +28,7 @@ const Router = () => {
     }));
   };
 
-  const addToCart = (itemId, image, quantity, price) => {
+  const addToCart = (itemId, image, quantity, price, title) => {
     if (quantity > 0) {
       setCartItems((prevItems) => ({
         ...prevItems,
@@ -36,6 +36,7 @@ const Router = () => {
           image,
           quantity,
           price,
+          title,
         },
       }));
     } else {

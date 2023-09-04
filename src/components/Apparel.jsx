@@ -11,6 +11,8 @@ export default function Apparel({
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  //TODO: get rid of shirt that has 22.3 as price
+
   useEffect(() => {
     fetch("https://fakestoreapi.com/products", { mode: "cors" })
       .then((res) => {
@@ -72,7 +74,8 @@ export default function Apparel({
                     clothingItem.id,
                     clothingItem.image,
                     quantity,
-                    clothingItem.price
+                    clothingItem.price,
+                    clothingItem.title
                   );
                 }}
               >

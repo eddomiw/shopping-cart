@@ -27,9 +27,9 @@ export default function Cart({ cartItems, updateCartItems }) {
   console.log(cartItems);
 
   return (
-    <div>
-      <h1>Cart</h1>
-      <div>
+    <div className="flex flex-col items-center">
+      <h1 className="text-center text-2xl py-5">Cart</h1>
+      <div className="p-4 w-4/5">
         {Object.keys(cartItems).map((itemId) => (
           <div key={itemId}>
             <img
@@ -37,19 +37,25 @@ export default function Cart({ cartItems, updateCartItems }) {
               src={cartItems[itemId].image}
               alt={itemId}
             ></img>
-            <div>Quantity: {cartItems[itemId].quantity}</div>
-            <div>Price: ${cartItems[itemId].price}</div>
-            <button
-              type="button"
-              data-testid={`removeButton ${itemId}`}
-              onClick={() => handleRemoveItem(itemId)}
-            >
-              Remove
-            </button>
+            <div>
+              <div>{cartItems[itemId].title}</div>
+              <div>Price: ${cartItems[itemId].price}</div>
+            </div>
+            <div>
+              <div>Quantity: {cartItems[itemId].quantity}</div>
+              <button
+                type="button"
+                data-testid={`removeButton ${itemId}`}
+                onClick={() => handleRemoveItem(itemId)}
+              >
+                Remove
+              </button>
+            </div>
+            <div>{cartItems[itemId].quantity * cartItems[itemId].price}</div>
           </div>
         ))}
       </div>
-      <div>Total: ${totalCost}</div>
+      <div className=" p-4 w-4/5  text-end">Total: ${totalCost}</div>
     </div>
   );
 }
