@@ -25,7 +25,6 @@ export default function LatestReleases() {
       .finally(() => setIsLoading(false));
   }, []);
 
-
   return (
     <div className="flex flex-col items-center my-2 gap-2">
       <h1 className="text-2xl">Latest Releases</h1>
@@ -34,15 +33,21 @@ export default function LatestReleases() {
       ) : error ? (
         <p>Error: {error}</p>
       ) : (
-        <ul className="flex text-xs">
+        <ul className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  text-xs">
           {sweaters.map((sweater) => (
             <li
               key={sweater.id}
               className="flex flex-col items-center gap-1 justify-center"
             >
-              <img src={sweater.image} alt={`${sweater.title} Image`} />
-              <div>{sweater.title} </div>
-              <div>{sweater.price} </div>
+              <img
+                className="max-w-[350px] min-w-[170px] w-4/6 min-h-[170px] max-h-[350px] h-5/6 "
+                src={sweater.image}
+                alt={`${sweater.title} Image`}
+              />
+              <div className="mt-auto text-center text-m">
+                <div>{sweater.title} </div>
+                <div>{sweater.price} </div>
+              </div>
             </li>
           ))}
         </ul>

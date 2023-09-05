@@ -36,19 +36,21 @@ export default function Apparel({
   }, []);
 
   return (
-    <div className="flex flex-col items-center my-2 gap-2">
+    <div className="flex  flex-col items-center  gap-2">
+      <div className="mt-8 text-3xl">Apparel</div>
       {isLoading ? (
         <p>Loading...</p> //Displays loading indicator
       ) : error ? (
         <p>Error: {error.message}</p> //Displays error message if fetching failed
       ) : (
-        <ul className="flex px-4 text-xs">
+        <ul className=" my-16 gap-10 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-10 text-xs">
           {clothing.map((clothingItem) => (
             <li
               key={clothingItem.id}
               className="flex flex-col items-center gap-1 justify-center"
             >
               <img
+                className="max-w-[350px] min-w-[170px] w-4/6 min-h-[170px] max-h-[350px] h-5/6 "
                 src={clothingItem.image}
                 alt={`${clothingItem.title} Image`}
               />
