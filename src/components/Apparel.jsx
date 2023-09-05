@@ -22,11 +22,13 @@ export default function Apparel({
         return res.json();
       })
       .then((json) => {
-        const clothingOnly = json.filter(
-          (item) =>
-            item.category === "men's clothing" ||
-            item.category === "women's clothing"
-        );
+        const clothingOnly = json
+          .filter(
+            (item) =>
+              item.category === "men's clothing" ||
+              item.category === "women's clothing"
+          )
+          .slice(1);
         setClothing(clothingOnly);
       })
       .catch((error) => setError(error))
@@ -40,7 +42,7 @@ export default function Apparel({
       ) : error ? (
         <p>Error: {error.message}</p> //Displays error message if fetching failed
       ) : (
-        <ul className="flex text-xs">
+        <ul className="flex px-4 text-xs">
           {clothing.map((clothingItem) => (
             <li
               key={clothingItem.id}
