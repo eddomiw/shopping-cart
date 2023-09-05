@@ -33,7 +33,7 @@ export default function Cart({ cartItems, updateCartItems }) {
         <div className="flex flex-col gap-3 justify-center items-center min-h-[80vh]">
           <div>YOUR CART IS EMPTY </div>
           <Link to="/apparel">
-            <button className="bg-black text-white p-2">
+            <button className="bg-black text-white p-2 px-4 rounded-lg focus:outline-none">
               SHOP OUR PRODUCTS
             </button>
           </Link>

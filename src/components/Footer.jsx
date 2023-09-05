@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-6 mt-auto ">
+    <footer className="bg-black text-white py-6 mt-auto ">
       <div className=" flex flex-col md:flex-row items-center justify-between">
         {/* Left Section */}
         <div className="mb-4 md:mb-0 px-10">
@@ -19,7 +19,7 @@ export default function Footer() {
             />
             <button
               type="submit"
-              className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-1 rounded-r focus:outline-none"
+              className="bg-pink-700 hover:bg-pink-800 text-white px-4 py-1 rounded-r focus:outline-none"
             >
               Subscribe
             </button>

@@ -12,7 +12,7 @@ export default function Header({ cartItems }) {
   };
 
   return (
-    <div className="flex justify-between w-full bg-pink-700 px-5 h-11 items-center flex-shrink-0 ">
+    <div className="flex justify-between w-full bg-pink-700 px-5 h-11 items-center text-white flex-shrink-0 ">
       <button className="mr-auto basis-20" onClick={toggleNavigation}>
         Navigation
       </button>
