@@ -31,7 +31,7 @@ export default function Cart({ cartItems, updateCartItems }) {
       <h1 className="text-center text-2xl py-5">Cart</h1>
       <div className="p-4 w-4/5">
         {Object.keys(cartItems).map((itemId) => (
-          <div key={itemId}>
+          <div className="py-5" key={itemId}>
             <img
               className=" w-28 "
               src={cartItems[itemId].image}

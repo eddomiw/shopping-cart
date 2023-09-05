@@ -23,8 +23,8 @@ export default function Navigation({ onClose }) {
           </Link>
         </li>
         <li className="p-3 text-center">
-          <Link to="/about" className="no-underline">
-            About
+          <Link to="/account" className="no-underline">
+            Account
           </Link>
         </li>
       </ul>

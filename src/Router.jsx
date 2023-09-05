@@ -3,7 +3,7 @@ import App from "./App.jsx";
 import Home from "./components/Home.jsx";
 import Apparel from "./components/Apparel.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
-import About from "./components/About.jsx";
+import Account from "./components/Account.jsx";
 import Cart from "./components/Cart.jsx";
 import "./index.css";
 import { useState } from "react";
@@ -68,7 +68,7 @@ const Router = () => {
             />
           ),
         },
-        { path: "about", element: <About /> },
+        { path: "account", element: <Account /> },
         {
           path: "cart",
           element: (
