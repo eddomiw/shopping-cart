@@ -44,13 +44,13 @@ describe("Navigation Elements Render", () => {
     expect(apparelPage).toBeInTheDocument();
   });
 
-  it("About", () => {
+  it("Account", () => {
     render(
       <BrowserRouter>
         <Navigation />
       </BrowserRouter>
     );
-    const aboutPage = screen.queryByText("About");
-    expect(aboutPage).toBeInTheDocument();
+    const AccountPage = screen.queryByText("Account");
+    expect(AccountPage).toBeInTheDocument();
   });
 });

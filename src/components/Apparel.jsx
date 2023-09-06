@@ -11,8 +11,6 @@ export default function Apparel({
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  //TODO: get rid of shirt that has 22.3 as price
-
   useEffect(() => {
     fetch("https://fakestoreapi.com/products", { mode: "cors" })
       .then((res) => {
@@ -47,7 +45,7 @@ export default function Apparel({
           {clothing.map((clothingItem) => (
             <li
               key={clothingItem.id}
-              className="flex flex-col items-center gap-2 justify-center"
+              className=" my-10  flex flex-col items-center gap-2 justify-center"
             >
               <img
                 className="max-w-[350px] min-w-[170px] w-4/6 min-h-[170px] max-h-[275px] h-5/6 "
@@ -80,7 +78,7 @@ export default function Apparel({
                   </button>
                 </div>
                 <button
-                  className="bg-black w-1/2 text-white p-2 rounded-lg focus:outline-none"
+                  className="bg-black w-full md:w-2/3 text-white p-2 rounded-lg focus:outline-none"
                   onClick={() => {
                     const quantity = itemCounts[clothingItem.id] || 0;
                     addToCart(

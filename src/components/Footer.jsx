@@ -3,23 +3,23 @@ export default function Footer() {
     <footer className="bg-black text-white py-6 mt-auto ">
       <div className=" flex flex-col md:flex-row items-center justify-between">
         {/* Left Section */}
-        <div className="mb-4 md:mb-0 px-10">
-          <h2 className="text-2xl font-bold mb-2">
+        <div className="mb-4 md:mb-0 px-20 md:px-14">
+          <h2 className="text-2xl  font-bold mb-2">
             Subscribe to Our Newsletter
           </h2>
           <p className="text-sm mb-2">
             Stay up-to-date with our latest apparel collections and exclusive
             offers.
           </p>
-          <form className="flex">
+          <form className="flex ">
             <input
               type="email"
               placeholder="Enter your email"
-              className="bg-gray-700 text-white border-2 border-gray-600 px-2 py-1 rounded-l focus:outline-none"
+              className="bg-gray-700 text-white border-2 border-gray-600 px-4 py-1 rounded-l focus:outline-none"
             />
             <button
               type="submit"
-              className="bg-pink-700 hover:bg-pink-800 text-white px-4 py-1 rounded-r focus:outline-none"
+              className="bg-pink-700 hover:bg-pink-800 text-white px-2 py-1 rounded-r focus:outline-none"
             >
               Subscribe
             </button>

@@ -10,7 +10,7 @@ export default function Cart({ cartItems, updateCartItems }) {
     Object.keys(cartItems).forEach((itemId) => {
       total += cartItems[itemId].quantity * cartItems[itemId].price;
     });
-    return total;
+    return total.toFixed(2);
   };
 
   const handleRemoveItem = (itemId) => {
@@ -33,43 +33,69 @@ export default function Cart({ cartItems, updateCartItems }) {
         <div className="flex flex-col gap-3 justify-center items-center min-h-[80vh]">
           <div>YOUR CART IS EMPTY </div>
           <Link to="/apparel">
-            <button className="bg-black text-white p-2 px-4 rounded-lg focus:outline-none">
+            <button className="bg-black text-white p-2 px-4 rounded-lg focus:outline-none ">
               SHOP OUR PRODUCTS
             </button>
           </Link>
         </div>
       ) : (
-        <div className="flex flex-col items-center min-h-[80vh]">
+        <div className=" mb-3 flex flex-col items-center min-h-[80vh]">
           <h1 className="text-center text-2xl py-5">Cart</h1>
-          <div className="p-4 w-4/5">
+          <div className="p-4  w-4/5">
+            <ul className=" hidden md:flex w-full justify-between border-b border-black">
+              {" "}
+              <li>PRODUCT</li>
+              <li className="ml-20"> QUANTITY </li>
+              <li> TOTAL </li>
+            </ul>
             {Object.keys(cartItems).map((itemId) => (
-              <div className="py-5" key={itemId}>
-                <img
-                  className=" w-28 "
-                  src={cartItems[itemId].image}
-                  alt={itemId}
-                ></img>
+              <div
+                className="py-5 flex border-b gap-5 items-center border-b-violet-900 "
+                key={itemId}
+              >
                 <div>
-                  <div>{cartItems[itemId].title}</div>
-                  <div>Price: ${cartItems[itemId].price}</div>
+                  <img
+                    className=" w-28 "
+                    src={cartItems[itemId].image}
+                    alt={itemId}
+                  ></img>
                 </div>
-                <div>
-                  <div>Quantity: {cartItems[itemId].quantity}</div>
-                  <button
-                    type="button"
-                    data-testid={`removeButton ${itemId}`}
-                    onClick={() => handleRemoveItem(itemId)}
-                  >
-                    Remove
-                  </button>
-                </div>
-                <div>
-                  {cartItems[itemId].quantity * cartItems[itemId].price}
+                <div className="w-full flex flex-col gap-5">
+                  <div>
+                    <div>{cartItems[itemId].title}</div>
+                    <div>${cartItems[itemId].price.toFixed(2)}</div>
+                  </div>
+                  <div className="flex justify-between">
+                    <div>Quantity: {cartItems[itemId].quantity}</div>
+                    <button
+                      className="underline"
+                      type="button"
+                      data-testid={`removeButton ${itemId}`}
+                      onClick={() => handleRemoveItem(itemId)}
+                    >
+                      REMOVE
+                    </button>
+                  </div>
+                  {/*
+                  <div>
+                    {(
+                      cartItems[itemId].quantity * cartItems[itemId].price
+                    ).toFixed(2)}
+                  </div> */}
                 </div>
               </div>
             ))}
           </div>
-          <div className=" p-4 w-4/5  text-end">Total: ${totalCost}</div>
+          <div className=" p-4 w-4/5  text-end">
+            <div>TOTAL: ${totalCost}</div>
+            <div className="text-gray-400">
+              Shipping & taxes calculated at checkout{" "}
+            </div>
+          </div>
+
+          <button className="bg-black text-white p-2 w-5/6 rounded-sm focus:outline-none ">
+            CHECKOUT
+          </button>
         </div>
       )}
     </div>
