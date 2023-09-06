@@ -3,8 +3,6 @@ import { screen, render, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Apparel from "../components/Apparel";
 
-// Function to increment item count
-
 it("Renders component without errors", () => {
   render(<Apparel />);
 });
@@ -38,7 +36,6 @@ describe("Renders in Different States", () => {
       const addButton = screen.getByTestId("addButton 1");
       await user.click(addButton);
 
-      // Check if incrementCount was called
       expect(incrementCount.mock.calls.length).toBe(1);
     });
   });
@@ -63,7 +60,6 @@ describe("Renders in Different States", () => {
       await user.click(addButton);
       await user.click(subtractButton);
 
-      // Check if both incrementCount and decrementCount were called
       expect(incrementCount.mock.calls.length).toBe(3);
       expect(decrementCount.mock.calls.length).toBe(1);
     });

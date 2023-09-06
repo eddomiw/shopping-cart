@@ -39,10 +39,10 @@ export default function Cart({ cartItems, updateCartItems }) {
           </Link>
         </div>
       ) : (
-        <div className=" mb-3 flex flex-col items-center min-h-[80vh]">
+        <div className=" text-zinc-600 mb-3 flex flex-col items-center min-h-[80vh]">
           <h1 className="text-center text-2xl py-5">Cart</h1>
           <div className="p-4  w-4/5">
-            <ul className=" hidden md:flex w-full justify-between border-b border-black">
+            <ul className=" hidden md:flex w-full justify-between border-b border-zinc-400">
               {" "}
               <li>PRODUCT</li>
               <li className="ml-20"> QUANTITY </li>
@@ -50,7 +50,7 @@ export default function Cart({ cartItems, updateCartItems }) {
             </ul>
             {Object.keys(cartItems).map((itemId) => (
               <div
-                className="py-5 flex border-b gap-5 items-center border-b-violet-900 "
+                className="py-5 flex border-b gap-5 items-center border-zinc-400 "
                 key={itemId}
               >
                 <div>

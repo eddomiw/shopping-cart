@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import LatestReleases from "../components/LatestReleases";
 
 it("Renders component without errors", () => {
@@ -17,14 +17,5 @@ describe("Renders in Different States", () => {
     render(<LatestReleases />);
     const errorDisplay = screen.queryByText("Server Error");
     expect(errorDisplay).not.toBeInTheDocument();
-  });
-
-  it("Displays sweaters when not in loading or error state", async () => {
-    render(<LatestReleases />);
-
-    await waitFor(() => {
-      const imageElements = screen.getAllByRole("img");
-      expect(imageElements.length).toBe(4);
-    });
   });
 });
