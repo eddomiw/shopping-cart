@@ -14,7 +14,7 @@ export default function ImageSlider({ images }) {
   //TODO: DESKTOP VERSION FOR DISPLAYING TWO IMAGES
   return (
     <div>
-      <div className="md:flex hidden md:w-screen">
+      <div className="md:flex hidden ">
         <div className="flex flex-row-reverse w-screen  ">
           {images.map((image, index) => (
             <img
