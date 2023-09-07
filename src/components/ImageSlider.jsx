@@ -13,8 +13,20 @@ export default function ImageSlider({ images }) {
   }, [images]);
   //TODO: DESKTOP VERSION FOR DISPLAYING TWO IMAGES
   return (
-    <div className="slider-container w-full overflow-hidden">
-      <div className="flex w-screen transition-all duration-500 ease-in-out">
+    <div>
+      <div className="md:flex hidden md:w-screen">
+        <div className="flex flex-row-reverse w-screen  ">
+          {images.map((image, index) => (
+            <img
+              key={index}
+              className="w-1/2 h-[500px]  object-cover"
+              src={image}
+              alt={`Image ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+      <div className="flex w-screen md:hidden ">
         {images.map((image, index) => (
           <div
             key={index}
@@ -23,7 +35,7 @@ export default function ImageSlider({ images }) {
             }  w-screen`}
           >
             <img
-              className="w-max-screen h-[500px] object-cover"
+              className="w-full h-[500px] object-cover"
               src={image}
               alt={`Image ${index + 1}`}
             />
