@@ -33,7 +33,7 @@ describe("Renders in Different States", () => {
       />
     );
     await waitFor(async () => {
-      const addButton = screen.getByTestId("addButton 1");
+      const addButton = screen.getByTestId("addButton 2");
       await user.click(addButton);
 
       expect(incrementCount.mock.calls.length).toBe(1);
@@ -53,8 +53,8 @@ describe("Renders in Different States", () => {
       />
     );
     await waitFor(async () => {
-      const addButton = screen.getByTestId("addButton 1");
-      const subtractButton = screen.getByTestId("subtractButton 1");
+      const addButton = screen.getByTestId("addButton 2");
+      const subtractButton = screen.getByTestId("subtractButton 2");
       await user.click(addButton);
       await user.click(addButton);
       await user.click(addButton);
