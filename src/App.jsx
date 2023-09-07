@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 function App({ cartItems }) {
   return (
-    <div className="flex flex-col ">
+    <div>
       <Header cartItems={cartItems} />
       <Outlet />
       <Footer />

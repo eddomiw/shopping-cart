@@ -23,7 +23,7 @@ export default function Header({ cartItems }) {
       <Link to="/">
         <h1 className="px-5 mx-auto border-black border">SWEATOO</h1>
       </Link>
-      <ul className=" list-none p-0 text-black font-serif hidden md:flex md:w-1/2 md:justify-between">
+      <ul className=" list-none p-0 text-black font-sans hidden md:flex md:w-1/2 md:justify-between">
         <li className="p-3 text-center">
           <Link to="/" className="no-underline">
             Home
