@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Footer() {
   return (
     <footer className="bg-black text-white py-6 mt-auto ">
@@ -11,18 +13,20 @@ export default function Footer() {
             Stay up-to-date with our latest apparel collections and exclusive
             offers.
           </p>
-          <form className="flex ">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="bg-gray-700 text-white border-2 border-gray-600 px-4 py-1 rounded-l focus:outline-none"
-            />
-            <button
-              type="submit"
-              className="bg-pink-700 hover:bg-pink-800 text-white px-2 py-1 rounded-r focus:outline-none"
-            >
-              Subscribe
-            </button>
+          <form className="flex w-4/5 ">
+            <div className="flex w-4/5">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="bg-gray-700 w-max-[280px] text-white border-2 border-gray-600 px-4 py-1 rounded-l focus:outline-none"
+              />
+              <button
+                type="submit"
+                className="bg-pink-700 hover:bg-pink-800 text-white px-2 py-1 rounded-r focus:outline-none"
+              >
+                Subscribe
+              </button>
+            </div>
           </form>
         </div>
 
@@ -32,13 +36,13 @@ export default function Footer() {
             <h2 className="text-2xl font-bold mb-2">Quick Links</h2>
             <ul className="list-none">
               <li className="mb-2">
-                <a href="/products">Shop</a>
+                <Link to="/apparel">Shop</Link>
               </li>
               <li className="mb-2 ">
-                <a href="/about">About Us</a>
+                <a href="#">About Us</a>
               </li>
               <li className="mb-2">
-                <a href="/contact">Contact Us</a>
+                <a href="#">Contact Us</a>
               </li>
             </ul>
           </div>
