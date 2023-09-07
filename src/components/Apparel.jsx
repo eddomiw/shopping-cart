@@ -35,13 +35,13 @@ export default function Apparel({
 
   return (
     <div className="flex  flex-col items-center gap-2">
-      <div className="mt-8 text-3xl">Apparel</div>
+      <div className="mt-8 font-serif  text-3xl">Apparel</div>
       {isLoading ? (
-        <p>Loading...</p> //Displays loading indicator
+        <p className="h-screen">Loading...</p> //Displays loading indicator
       ) : error ? (
         <p>Error: {error.message}</p> //Displays error message if fetching failed
       ) : (
-        <ul className=" my-16 gap-11 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-10 text-xs">
+        <ul className=" my-8 gap-11 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-10 text-xs">
           {clothing.map((clothingItem) => (
             <li
               key={clothingItem.id}

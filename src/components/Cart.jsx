@@ -40,7 +40,7 @@ export default function Cart({ cartItems, updateCartItems }) {
         </div>
       ) : (
         <div className=" text-zinc-600 mb-3 flex flex-col items-center min-h-[80vh]">
-          <h1 className="text-center text-2xl py-5">Cart</h1>
+          <h1 className="text-center text-2xl font-serif  py-5">Cart</h1>
           <div className="p-4  w-4/5">
             <ul className=" hidden md:flex w-full justify-between border-b border-zinc-400">
               <li>PRODUCT</li>
@@ -95,7 +95,7 @@ export default function Cart({ cartItems, updateCartItems }) {
           </div>
 
           <div className="flex w-4/5 justify-center md:justify-end p-4 ">
-            <button className="bg-black text-white p-2 w-5/6 rounded-sm focus:outline-none md:w-2/12 ">
+            <button className="bg-black text-white p-2 w-5/6 rounded-sm focus:outline-none md:w-2/12 hover:text-black hover:bg-white border-black border ">
               CHECKOUT
             </button>
           </div>
