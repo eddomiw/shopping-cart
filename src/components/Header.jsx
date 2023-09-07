@@ -12,15 +12,24 @@ export default function Header({ cartItems }) {
   };
 
   return (
-    <div className="flex justify-between w-full bg-pink-700 px-5 h-11 items-center text-white flex-shrink-0 ">
+    <div className="flex justify-between w-full bg-pink-700 px-5 h-11 items-center text-black font-bold text-xl font-serif flex-shrink-0 ">
       <button className="mr-auto basis-20" onClick={toggleNavigation}>
-        Navigation
+        <img
+          className="h-9"
+          src="https://icon-library.com/images/hamburger-menu-icon-svg/hamburger-menu-icon-svg-17.jpg"
+          alt="Navigation"
+        />
       </button>
       <Link to="/">
         <h1 className="px-5 mx-auto">SWEATOO</h1>
       </Link>
       <Link to="cart" className="basis-20 flex text-center gap-1 px-5 ml-auto">
-        <button>Cart</button>
+        <button>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Shopping_cart_font_awesome.svg/1200px-Shopping_cart_font_awesome.svg.png"
+            alt="Cart"
+          />
+        </button>
         <div>{totalItemCount}</div>
       </Link>
       {isNavigationOpen && <Navigation onClose={toggleNavigation} />}
