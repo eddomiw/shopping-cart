@@ -7,10 +7,10 @@ function Home() {
     "https://cdn.thewirecutter.com/wp-content/media/2020/12/cashmeresweaters-2048px-0995-2x1-1.jpg?auto=webp&quality=75&crop=2:1&width=980&dpr=2",
   ];
   return (
-    <>
+    <div>
       <ImageSlider images={imageData} />
       <LatestReleases />;
-    </>
+    </div>
   );
 }
 
