@@ -43,9 +43,8 @@ export default function Cart({ cartItems, updateCartItems }) {
           <h1 className="text-center text-2xl py-5">Cart</h1>
           <div className="p-4  w-4/5">
             <ul className=" hidden md:flex w-full justify-between border-b border-zinc-400">
-              {" "}
               <li>PRODUCT</li>
-              <li className="ml-20"> QUANTITY </li>
+              <li className="ml-48"> QUANTITY </li>
               <li> TOTAL </li>
             </ul>
             {Object.keys(cartItems).map((itemId) => (
@@ -60,12 +59,14 @@ export default function Cart({ cartItems, updateCartItems }) {
                     alt={itemId}
                   ></img>
                 </div>
-                <div className="w-full flex flex-col gap-5">
-                  <div>
-                    <div>{cartItems[itemId].title}</div>
+                <div className="w-full flex flex-col md:flex-row md:justify-between gap-5">
+                  <div className="flex flex-col gap-1">
+                    <div className="max-w-[144px]">
+                      {cartItems[itemId].title}
+                    </div>
                     <div>${cartItems[itemId].price.toFixed(2)}</div>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex md:flex-col md:gap-2 md:justify-center justify-between">
                     <div>Quantity: {cartItems[itemId].quantity}</div>
                     <button
                       className="underline"
@@ -76,12 +77,12 @@ export default function Cart({ cartItems, updateCartItems }) {
                       REMOVE
                     </button>
                   </div>
-                  {/*
-                  <div>
+
+                  <div className="hidden md:block">
                     {(
                       cartItems[itemId].quantity * cartItems[itemId].price
                     ).toFixed(2)}
-                  </div> */}
+                  </div>
                 </div>
               </div>
             ))}
@@ -93,9 +94,11 @@ export default function Cart({ cartItems, updateCartItems }) {
             </div>
           </div>
 
-          <button className="bg-black text-white p-2 w-5/6 rounded-sm focus:outline-none ">
-            CHECKOUT
-          </button>
+          <div className="flex w-4/5 justify-center md:justify-end p-4 ">
+            <button className="bg-black text-white p-2 w-5/6 rounded-sm focus:outline-none md:w-2/12 ">
+              CHECKOUT
+            </button>
+          </div>
         </div>
       )}
     </div>
